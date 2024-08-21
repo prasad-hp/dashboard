@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { dashboardState } from '../recoil/dashboardState';
 
-const AddWidgetForm = () => {
+function AddWidgetForm() {
   const [dashboard, setDashboard] = useRecoilState(dashboardState);
   const [widgetName, setWidgetName] = useState('');
   const [widgetText, setWidgetText] = useState('');

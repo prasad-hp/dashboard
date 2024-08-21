@@ -3,7 +3,7 @@ import { useRecoilState } from 'recoil';
 import { dashboardState } from '../recoil/dashboardState';
 import { Chart } from 'chart.js/auto'; // Import Chart.js properly
 
-const Widget = ({ widget, category }) => {
+function DoughnutWidget ({ widget, category }) {
   const [dashboard, setDashboard] = useRecoilState(dashboardState);
   const canvasRef = useRef(null); // Create a ref for the canvas element
   const chartRef = useRef(null); // Create a ref for the Chart.js instance
@@ -27,7 +27,6 @@ const Widget = ({ widget, category }) => {
     if (chartRef.current) {
       chartRef.current.destroy();
     }
-
     // Create a new chart instance and store it in chartRef
     chartRef.current = new Chart(ctx, {
       type: 'doughnut',
@@ -57,7 +56,7 @@ const Widget = ({ widget, category }) => {
   return (
     <div className="bg-white p-4 rounded shadow-md relative">
       <h3 className="text-lg font-semibold">{widget.name}</h3>
-      <canvas ref={canvasRef}>fsdfsdf</canvas> {/* Add canvas element */}
+      <canvas ref={canvasRef}></canvas> {/* Add canvas element */}
       <button
         className="absolute top-0 right-0 p-2 text-red-500"
         onClick={removeWidget}>
@@ -67,4 +66,4 @@ const Widget = ({ widget, category }) => {
   );
 };
 
-export default Widget;
+export default DoughnutWidget;

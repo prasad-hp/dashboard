@@ -9,19 +9,43 @@ export const dashboardState = atom({
         widgets: [
           {
             id: 1,
-            name: 'Widget 1',
-            text: 'Random text for widget 1',
+            name: 'Cloud Accounts',
+            type: "doughnut"
           },
           {
             id: 2,
-            name: 'Widget 2',
-            text: 'Random text for widget 2',
+            name: 'Cloud Account Risk Assesment',
+            type: "doughnut"
           },
         ],
       },
       {
-        name: 'Another Category',
-        widgets: [],
+        name: 'CWPP Dashboard',
+        widgets: [
+          {
+            id:1,
+            name: "Top 5 Namespace Specific Alerts",
+            text:"No graph Data available",
+            type:"line"
+          },
+          {
+            id:2,
+            name: "Workload Alerts",
+            text:"No graph Data available",
+            type:"line"
+          }
+        ],
+      },
+      {
+        name: 'Registry Scan',
+        widgets: [{
+          id:1,
+          name: "Image Risk Assesment"
+        },
+        {
+          id:2,
+          name: "Image Security Issues"
+        }],
       },
     ],
   },
