@@ -7,6 +7,7 @@ import Navbar from '../components/NavBar';
 
 function Dashboard (){
   const dashboard = useRecoilValue(dashboardState);
+  console.log(dashboard)
 
   return (
     <div className="container mx-auto p-4">

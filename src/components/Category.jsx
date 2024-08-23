@@ -1,26 +1,36 @@
+// Dashboard.js
 import React from 'react';
-import DoughnutWidget from './DoughnutWidget';
-import LineWidget from './LineWidget';
-import StackedBarWidget from './StackedBarWidget';
+import { dashboardState } from '../recoil/dashboardState';
+import DonutChart from './DonutChart';
+import LineChart from './LineChart';
+import StackedBarChart from './StackedBarChart';
+import { useRecoilValue } from 'recoil';
 
-function Category({ category }) {
+function Charts() {
+  const { categories } = useRecoilValue(dashboardState);
+
   return (
-    <div className="mb-6">
-      <h2 className="text-xl font-bold mb-4">{category.name}</h2>
-      <div className="grid grid-cols-3 gap-4">
-        {category.name === "CSPM Executive Dashboard" &&
-          category.widgets.map(widget => (
-            <DoughnutWidget key={widget.id} widget={widget} category={category.name} />
-          ))
-        }
-        {category.name === "CWPP Dashboard" &&
-          category.widgets.map(widget => (
-            <LineWidget key={widget.id} widget={widget} category={category.name} />
-          ))}
-          <StackedBarWidget />
-      </div>
+    <div>
+      {categories.map((category) => (
+        <div key={category.name}>
+          <h2>{category.name}</h2>
+          {category.widgets.map((widget) => {
+            const { id, type } = widget;
+
+            if (type === 'pie') {
+              return <DonutChart key={id} />;
+            } else if (type === 'line') {
+              return <LineChart key={id} />;
+            } else if (type === 'bar') {
+              return <StackedBarChart key={id} />;
+            } else {
+              return <div key={id}>No chart available for this type</div>;
+            }
+          })}
+        </div>
+      ))}
     </div>
   );
-};
+}
 
-export default Category;
+export default Charts;
