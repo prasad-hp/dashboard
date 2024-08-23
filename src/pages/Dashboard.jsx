@@ -12,9 +12,7 @@ function Dashboard (){
   return (
     <div className="container mx-auto p-4">
       <Navbar />
-      {dashboard.categories.map((category, index) => (
-        <Category key={index} category={category} />
-      ))}
+        <Category category={dashboard.category} />
       <AddWidgetForm />
     </div>
   );

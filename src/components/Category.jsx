@@ -1,32 +1,33 @@
 // Dashboard.js
 import React from 'react';
-import { dashboardState } from '../recoil/dashboardState';
+import { useRecoilValue } from 'recoil';
+import { dashboardState } from '../recoil/dashboardState'; // Adjust the import path as needed
 import DonutChart from './DonutChart';
 import LineChart from './LineChart';
 import StackedBarChart from './StackedBarChart';
-import { useRecoilValue } from 'recoil';
 
 function Charts() {
   const { categories } = useRecoilValue(dashboardState);
 
   return (
-    <div>
+    <div className="p-4">
       {categories.map((category) => (
-        <div key={category.name}>
-          <h2>{category.name}</h2>
-          {category.widgets.map((widget) => {
-            const { id, type } = widget;
+        <div key={category.name} className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">{category.name}</h2>
+          <div className="flex flex-wrap gap-4">
+            {category.widgets.map((widget) => {
+              const { id, type, name } = widget;
 
-            if (type === 'pie') {
-              return <DonutChart key={id} />;
-            } else if (type === 'line') {
-              return <LineChart key={id} />;
-            } else if (type === 'bar') {
-              return <StackedBarChart key={id} />;
-            } else {
-              return <div key={id}>No chart available for this type</div>;
-            }
-          })}
+              return (
+                <div key={id} className="flex-1 min-w-[300px]">
+                  {type === 'pie' && <DonutChart name={name} />}
+                  {type === 'line' && <LineChart name={name} />}
+                  {type === 'bar' && <StackedBarChart name={name} />}
+                  {type !== 'pie' && type !== 'line' && type !== 'bar' && <div>No chart available for this type</div>}
+                </div>
+              );
+            })}
+          </div>
         </div>
       ))}
     </div>

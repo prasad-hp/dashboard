@@ -3,13 +3,13 @@ import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
-const LineChart = () => {
+const LineChart = ({name}) => {
   const options = {
     chart: {
         type: 'line',
       },
     title: {
-      text: 'Line Chart Example',
+      text: name,
     },
     xAxis: {
       categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],

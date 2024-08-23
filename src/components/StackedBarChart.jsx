@@ -3,13 +3,13 @@ import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
-const StackedBarChart = () => {
+const StackedBarChart = ({name}) => {
   const options = {
     chart: {
       type: 'bar',
     },
     title: {
-      text: 'Stacked Bar Chart Example',
+      text: name,
     },
     xAxis: {
       categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],

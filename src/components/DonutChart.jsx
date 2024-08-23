@@ -3,13 +3,13 @@ import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
-const DonutChart = () => {
+const DonutChart = ({name}) => {
   const options = {
     chart: {
       type: 'pie',
     },
     title: {
-      text: 'Donut Chart Example',
+      text: name,
     },
     plotOptions: {
       pie: {
@@ -32,7 +32,6 @@ const DonutChart = () => {
       },
     ],
   };
-
   return <HighchartsReact highcharts={Highcharts} options={options} />;
 };
 
