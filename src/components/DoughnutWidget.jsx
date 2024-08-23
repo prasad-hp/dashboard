@@ -9,7 +9,7 @@ function DoughnutWidget ({ widget, category }) {
   const chartRef = useRef(null); // Create a ref for the Chart.js instance
 
   const removeWidget = () => {
-    const updatedCategories = dashboard.categories.map(cat => {
+    const updatedCategories = dashboard.categories.name ==='CSPM Executive Dashboard'.map(cat => {
       if (cat.name === category) {
         return {
           ...cat,
@@ -45,13 +45,13 @@ function DoughnutWidget ({ widget, category }) {
       }
     });
 
-    // Cleanup chart instance on component unmount
+
     return () => {
       if (chartRef.current) {
         chartRef.current.destroy();
       }
     };
-  }, []); // Empty dependency array to run once on mount
+  }, []);
 
   return (
     <div className="bg-white p-4 rounded shadow-md relative">

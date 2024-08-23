@@ -40,7 +40,8 @@ export const dashboardState = atom({
         name: 'Registry Scan',
         widgets: [{
           id:1,
-          name: "Image Risk Assesment"
+          name: "Image Risk Assesment",
+          
         },
         {
           id:2,
