@@ -1,19 +1,21 @@
 import React from 'react';
-import { useRecoilValue } from 'recoil';
-import { dashboardState } from '../recoil/dashboardState';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { dashboardState, displayWidgetForm } from '../recoil/dashboardState';
 import Category from '../components/Category';
 import AddWidgetForm from '../components/AddWidgetForm';
 import Navbar from '../components/NavBar';
 
 function Dashboard (){
   const dashboard = useRecoilValue(dashboardState);
-  console.log(dashboard)
+  const [widgetForm, setWidgetForm] = useRecoilState(displayWidgetForm)
 
   return (
-    <div className="container mx-auto p-4">
-      <Navbar />
+    <div className="container mx-auto p-4 bg-slate-200 flex w-full">
+      <div className='w-full'>
+        <Navbar />
         <Category category={dashboard.category} />
-      <AddWidgetForm />
+      </div>
+      {widgetForm.display && <AddWidgetForm />}
     </div>
   );
 };

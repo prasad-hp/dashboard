@@ -29,3 +29,10 @@ export const dashboardState = atom({
     ],
   },
 });
+
+export const displayWidgetForm = atom({
+  key: "displayWidgetForm",
+  default:{
+    display: false
+  }
+})
