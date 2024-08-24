@@ -1,23 +1,25 @@
 import React from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { dashboardState, displayWidgetForm } from '../recoil/dashboardState';
-import Category from '../components/Category';
+import Charts from '../components/Charts';
 import AddWidgetForm from '../components/AddWidgetForm';
-import Navbar from '../components/NavBar';
+import SearchAppBar from '../components/SearchAppbar';
+import TopBar from '../components/TopBar';
 
-function Dashboard (){
+function Dashboard() {
   const dashboard = useRecoilValue(dashboardState);
-  const [widgetForm, setWidgetForm] = useRecoilState(displayWidgetForm)
+  const [widgetForm, setWidgetForm] = useRecoilState(displayWidgetForm);
 
   return (
-    <div className="container mx-auto p-4 bg-slate-200 flex w-full">
-      <div className='w-full'>
-        <Navbar />
-        <Category category={dashboard.category} />
+    <div className="container mx-auto bg-slate-200 flex w-full">
+      <div className="w-full">
+        <SearchAppBar />
+        <TopBar />
+        <Charts category={dashboard.category} />
       </div>
       {widgetForm.display && <AddWidgetForm />}
     </div>
   );
-};
+}
 
 export default Dashboard;

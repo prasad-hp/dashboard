@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { dashboardState, displayWidgetForm } from '../recoil/dashboardState';
 
@@ -8,10 +8,10 @@ function AddWidgetForm() {
   const [widgetText, setWidgetText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(dashboard.categories[0]?.name || '');
   const [selectedWidgetType, setSelectedWidgetType] = useState('');
-  const setDisplayForm = useSetRecoilState(displayWidgetForm)
+  const setDisplayForm = useSetRecoilState(displayWidgetForm);
 
+  const widgetTypes = ['line', 'pie', 'bar'];
 
-  const widgetTypes = ['line', 'pie', 'bar']; 
   const addWidget = () => {
     if (!widgetName || !selectedWidgetType) {
       alert('Please fill out all fields.');
@@ -39,10 +39,11 @@ function AddWidgetForm() {
     setWidgetName('');
     setWidgetText('');
     setSelectedWidgetType('');
+    setDisplayForm({ display: false });
   };
 
   return (
-    <div className={`my-6 p-4 bg-gray-100 rounded shadow-md z-10 absolute right-0 top-20`}>
+    <div className="my-6 p-4 bg-gray-100 rounded shadow-md z-10 absolute right-0 top-20">
       <h2 className="text-lg font-bold mb-4">Add a new Widget</h2>
       <div className="mb-4">
         <label className="block mb-2">Widget Name:</label>
@@ -95,12 +96,14 @@ function AddWidgetForm() {
       </div>
       <button
         className="bg-blue-500 text-white py-2 px-4 rounded w-32"
-        onClick={addWidget}>
+        onClick={addWidget}
+      >
         Add Widget
       </button>
       <button
         className="bg-red-500 text-white py-2 px-4 rounded ml-3 w-32"
-        onClick={()=>setDisplayForm({display:false})}>
+        onClick={() => setDisplayForm({ display: false })}
+      >
         Cancel
       </button>
     </div>

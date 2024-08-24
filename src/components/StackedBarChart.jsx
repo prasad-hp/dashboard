@@ -12,12 +12,12 @@ const StackedBarChart = ({name}) => {
       text: name,
     },
     xAxis: {
-      categories: ['Apples', 'Oranges', 'Pears', 'Grapes', 'Bananas'],
+      categories: ['Apples'],
     },
     yAxis: {
       min: 0,
       title: {
-        text: 'Total fruit consumption',
+        text: '1740 Total Vulnerabilities',
       },
     },
     legend: {
@@ -30,16 +30,24 @@ const StackedBarChart = ({name}) => {
     },
     series: [
       {
-        name: 'John',
-        data: [5, 3, 4, 7, 2],
+        name: 'Critical',
+        data: [9],
       },
       {
-        name: 'Jane',
-        data: [2, 2, 3, 2, 1],
+        name: 'High',
+        data: [150],
       },
       {
-        name: 'Joe',
-        data: [3, 4, 4, 2, 5],
+        name: 'Medium',
+        data: [840],
+      },
+      {
+        name: 'Low',
+        data: [400],
+      },
+      {
+        name: 'Negligible',
+        data: [34],
       },
     ],
   };
