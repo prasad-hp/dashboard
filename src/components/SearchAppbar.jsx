@@ -61,7 +61,6 @@ function SearchAppBar() {
     setSearch(value);
   
     if (value.trim() === '') {
-      // If search input is empty, do nothing
       return;
     }
   
