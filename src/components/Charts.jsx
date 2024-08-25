@@ -30,10 +30,8 @@ function Charts() {
               );
             })}
             <div
-              className="flex items-center justify-center flex-1 min-w-[300px] max-w-[450px] min-h-[300px] max-h-[450px] border border-dashed border-gray-300 p-2 rounded-lg cursor-pointer"
-              onClick={() => setDisplayForm({ display: true })}
-            >
-              <button className="text-gray-500">+ Add Widget</button>
+              className="flex items-center justify-center flex-1 min-w-[300px] max-w-[450px] min-h-[300px] max-h-[450px] border bg-white border-gray-300 p-2 rounded-lg">
+              <button onClick={() => setDisplayForm({ display: true })} className="text-gray-500 border border-gray-500 h-10 w-36 rounded-md">+ Add Widget</button>
             </div>
           </div>
         </div>

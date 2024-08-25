@@ -12,7 +12,7 @@ const StackedBarChart = ({name}) => {
       text: name,
     },
     xAxis: {
-      categories: ['Apples'],
+      categories: ['Vulnerabilities'],
     },
     yAxis: {
       min: 0,
