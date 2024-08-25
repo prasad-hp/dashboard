@@ -18,7 +18,7 @@ This project is a dashboard application that displays various charts created usi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/dashboard-assignment.git
+   git clone https://github.com/prasad-hp/dashboard.git
 
 2. Navigate to the project directory:
     ```bash
