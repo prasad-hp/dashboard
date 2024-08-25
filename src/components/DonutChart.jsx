@@ -3,7 +3,7 @@ import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
-const DonutChart = ({name}) => {
+const DonutChart = ({name, data}) => {
   const options = {
     chart: {
       type: 'pie',
@@ -24,11 +24,7 @@ const DonutChart = ({name}) => {
     series: [
       {
         name: 'Share',
-        data: [
-          { name: 'Category A', y: 30 },
-          { name: 'Category B', y: 20 },
-          { name: 'Category C', y: 50 },
-        ],
+        data: data,
       },
     ],
   };

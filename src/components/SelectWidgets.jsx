@@ -30,7 +30,6 @@ function SelectWidgets() {
       checked ? [...prev, name] : prev.filter((widget) => widget !== name)
     );
 
-    // Update the dashboardState to remove/add widget based on the checkbox state
     setWidgetData((prevState) => ({
       ...prevState,
       categories: prevState.categories.map((category) => {

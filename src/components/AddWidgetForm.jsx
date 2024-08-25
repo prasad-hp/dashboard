@@ -84,8 +84,7 @@ function AddWidgetForm() {
         <select
           className="p-2 border rounded w-full"
           value={selectedWidgetType}
-          onChange={(e) => setSelectedWidgetType(e.target.value)}
-        >
+          onChange={(e) => setSelectedWidgetType(e.target.value)}>
           <option value="" disabled>
             Select type
           </option>
@@ -98,14 +97,12 @@ function AddWidgetForm() {
       </div>
       <button
         className="bg-blue-500 text-white py-2 px-4 rounded w-32"
-        onClick={addWidget}
-      >
+        onClick={addWidget}>
         Add Widget
       </button>
       <button
         className="bg-red-500 text-white py-2 px-4 rounded ml-3 w-32"
-        onClick={() => setDisplayForm({ display: false })}
-      >
+        onClick={() => setDisplayForm({ display: false })}>
         Cancel
       </button>
     </div>

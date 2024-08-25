@@ -1,9 +1,8 @@
-// StackedBarChart.js
 import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from 'highcharts';
 
-const StackedBarChart = ({name}) => {
+const StackedBarChart = ({ name, chartData }) => {
   const options = {
     chart: {
       type: 'bar',
@@ -17,7 +16,7 @@ const StackedBarChart = ({name}) => {
     yAxis: {
       min: 0,
       title: {
-        text: '1740 Total Vulnerabilities',
+        text: 'Total Vulnerabilities',
       },
     },
     legend: {
@@ -28,28 +27,7 @@ const StackedBarChart = ({name}) => {
         stacking: 'normal',
       },
     },
-    series: [
-      {
-        name: 'Critical',
-        data: [9],
-      },
-      {
-        name: 'High',
-        data: [150],
-      },
-      {
-        name: 'Medium',
-        data: [840],
-      },
-      {
-        name: 'Low',
-        data: [400],
-      },
-      {
-        name: 'Negligible',
-        data: [34],
-      },
-    ],
+    series: chartData.series,
   };
 
   return <HighchartsReact highcharts={Highcharts} options={options} />;

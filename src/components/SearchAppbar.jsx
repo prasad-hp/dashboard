@@ -59,14 +59,19 @@ function SearchAppBar() {
   const handleSearchChange = (event) => {
     const value = event.target.value;
     setSearch(value);
-
+  
+    if (value.trim() === '') {
+      // If search input is empty, do nothing
+      return;
+    }
+  
     const filteredCategories = dashboard.categories.map((category) => {
       const filteredWidgets = category.widgets.filter((widget) =>
         widget.name.toLowerCase().includes(value.toLowerCase())
       );
       return { ...category, widgets: filteredWidgets };
     });
-
+  
     setDashboard({ categories: filteredCategories });
   };
 
@@ -84,7 +89,8 @@ function SearchAppBar() {
               alignItems: 'center', 
               color: "#626567",
             }}
-          >
+          > 
+          
             <p style={{ margin: 0, padding: "5px" }}>Home {" > "}</p>
             <p style={{ margin: 0, color: "#2471a3" }}>Dashboard</p>
           </Typography>
