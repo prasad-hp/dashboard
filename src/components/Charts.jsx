@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import { dashboardState, displayWidgetForm } from '../recoil/dashboardState';
 import DonutChart from './DonutChart';
 import LineChart from './LineChart';
@@ -8,6 +8,21 @@ import StackedBarChart from './StackedBarChart';
 function Charts() {
   const { categories } = useRecoilValue(dashboardState);
   const setDisplayForm = useSetRecoilState(displayWidgetForm);
+  const [widgetsState, setWidgetsState] = useRecoilState(dashboardState);
+
+  const removeWidget = (categoryName, widgetId) => {
+    setWidgetsState((prevState) => ({
+      ...prevState,
+      categories: prevState.categories.map((category) =>
+        category.name === categoryName
+          ? {
+              ...category,
+              widgets: category.widgets.filter((widget) => widget.id !== widgetId),
+            }
+          : category
+      ),
+    }));
+  };
 
   return (
     <div className="p-4">
@@ -20,8 +35,14 @@ function Charts() {
               return (
                 <div
                   key={id}
-                  className="flex-1 min-w-[300px] max-w-[450px] min-h-[300px] max-h-[450px] border border-gray-300 p-2 rounded-xl bg-white"
-                >
+                  className="relative flex-1 min-w-[300px] max-w-[450px] min-h-[300px] max-h-[450px] border border-gray-300 p-6 rounded-xl bg-white">
+                  
+                  <button
+                    className="absolute text-xl top-2 right-3 text-gray-600 hover:text-red-600  rounded-full"
+                    onClick={() => removeWidget(category.name, id)}>
+                    &times;
+                  </button>
+                  
                   {type === 'pie' && <DonutChart name={name} />}
                   {type === 'line' && <LineChart name={name} />}
                   {type === 'bar' && <StackedBarChart name={name} />}

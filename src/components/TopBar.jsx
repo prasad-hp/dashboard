@@ -12,7 +12,7 @@ function TopBar() {
                 Add Widget
                 <img src="../../add.svg" alt="Add" />
             </button>
-            <button className='bg-white flex h-10 rounded-md items-center w-10 justify-center border-2 border-gray-400'>
+            <button onClick={()=>window.location.reload()} className='bg-white flex h-10 rounded-md items-center w-10 justify-center border-2 border-gray-400'>
                 <img src="../../autorenew.svg" alt="Autorenew" />
             </button>
             <button className='bg-white flex h-10 rounded-md items-center w-10 justify-center border-2 border-gray-400'>

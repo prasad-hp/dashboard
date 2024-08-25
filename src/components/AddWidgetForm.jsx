@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { dashboardState, displayWidgetForm } from '../recoil/dashboardState';
+import SelectWidgets from './SelectWidgets';
 
 function AddWidgetForm() {
   const [dashboard, setDashboard] = useRecoilState(dashboardState);
@@ -44,6 +45,7 @@ function AddWidgetForm() {
 
   return (
     <div className="my-6 p-4 bg-gray-100 rounded shadow-md z-10 absolute right-0 top-20">
+      <SelectWidgets />
       <h2 className="text-lg font-bold mb-4">Add a new Widget</h2>
       <div className="mb-4">
         <label className="block mb-2">Widget Name:</label>
