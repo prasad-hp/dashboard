@@ -33,10 +33,10 @@ This project is a dashboard application that displays various charts created usi
 2. Click on the link in your terminal which leads to browser or Open your browser and navigate to:
     http://localhost:5173/
 
-
 ### Folder Structure
 - **src**: Contains all the source code for the application.
 - **components**: Reusable React components.
+- **pages**: Different pages, consisting of components.
 - **recoil**: Recoil state management files.
 - **public**: Static assets like images.
 
